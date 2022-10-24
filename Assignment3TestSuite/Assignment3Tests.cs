@@ -5,6 +5,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 using Xunit;
 
+
 namespace Assignment3TestSuite
 {
 
@@ -73,7 +74,6 @@ namespace Assignment3TestSuite
             Assert.Contains("illegal method", response?.Status?.ToLower());
         }
 
-
         [Theory]
         [InlineData("create")]
         [InlineData("read")]
@@ -95,7 +95,6 @@ namespace Assignment3TestSuite
 
             Assert.Contains("missing resource", response?.Status?.ToLower());
         }
-
         /* Date Tests    */
 
         [Fact]
@@ -152,7 +151,6 @@ namespace Assignment3TestSuite
             Assert.Contains("missing body", response?.Status?.ToLower());
         }
 
-
         [Fact]
         public void Constraint_RequestUpdateWithoutJsonBody_IllegalBodyError()
         {
@@ -173,7 +171,7 @@ namespace Assignment3TestSuite
             Assert.Contains("illegal body", response?.Status?.ToLower());
 
         }
-
+#if comment
         /* Echo Test */
         [Fact]
         public void Echo_RequestWithBody_ReturnsBody()
@@ -569,7 +567,7 @@ namespace Assignment3TestSuite
 
             Assert.Contains("5 not found", response.Status?.ToLower());
         }
-
+#endif
         /**********************************************************
          * 
          *  Helper Methods
@@ -587,7 +585,6 @@ namespace Assignment3TestSuite
             client.Connect(IPAddress.Loopback, Port);
             return client;
         }
-
     }
 
     /**********************************************************
